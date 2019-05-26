@@ -1,0 +1,30 @@
+
+1)mvn clean install
+
+2)mvn spring-boot:run
+
+3)MySQL test
+
+	http://localhost:8080/user/articles         (GET)
+
+	http://localhost:8080/user/article/3        (GET)
+
+	http://localhost:8080/user/article/         (POST)
+	  {
+	  "article_id":"4",
+	  "title":"Cassandra",
+	  "category":"ColumnDB"
+	  }
+	  
+4)Run Docker for IBM MQ
+
+  docker run --env LICENSE=accept --env MQ_QMGR_NAME=QM1 --publish 1414:1414 --publish 9443:9443 --detach --volume qm1data:/mnt/mqm ibmcom/mq
+  https://localhost:9443/ibmmq/console   (admin/passw0rd)
+	  
+5)IBM MQ test
+  
+  http://localhost:8080/user/sendMessageToIbmMq
+  
+6)Rabbit MQ test
+
+  http://localhost:8080/user/sendMessageToRabbitMq
